@@ -17,7 +17,7 @@ public class Main {
         }
         return false;
     }
-    public static String hasManySpaces(String str){
+    public static String deleteSpaces(String str){
         if(str.contains(" ")){
             String[] data = str.split(" ");
             int count =0;
@@ -59,8 +59,8 @@ public class Main {
             if (countOperations==0) throw new Exception("строка не является математической операцией");//если операторы в выражении отсутствуют то выбрасываем исключение
             if (countOperations!=1) throw new Exception("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
 
-            aOperand =hasManySpaces(input.substring(0,index));
-            bOperand =hasManySpaces(input.substring(index+1));
+            aOperand = deleteSpaces(input.substring(0,index));
+            bOperand = deleteSpaces(input.substring(index+1));
 
             if(isNumeric(aOperand)&&isRomanianNumber(bOperand)) throw new Exception("используются одновременно разные системы счисления");
             if(isNumeric(bOperand)&&isRomanianNumber(aOperand)) throw new Exception("используются одновременно разные системы счисления");
